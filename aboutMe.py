@@ -47,12 +47,10 @@ async def main():
                 color: #ccc;
             }
             .hero {
-                background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
-                padding: 100px 20px;
+                background: linear-gradient(to right, #0071e3, #00aaff), url('https://via.placeholder.com/1200x800') no-repeat center center/cover;
+                height: 100vh;
                 text-align: center;
                 color: #fff;
-                border-radius: 15px;
-                margin-bottom: 40px;
                 position: relative;
                 overflow: hidden;
             }
@@ -71,17 +69,26 @@ async def main():
                 font-size: 4em;
                 z-index: 1;
                 position: relative;
+                font-weight: 300;
+                animation: fadeIn 2s ease-in-out;
             }
             .hero p {
                 font-size: 1.5em;
                 z-index: 1;
                 position: relative;
+                font-weight: 300;
+                animation: fadeIn 2s ease-in-out 1s;
+            }
+            @keyframes fadeIn {
+                from { opacity: 0; }
+                to { opacity: 1; }
             }
             .content {
                 display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                grid-template-columns: repeat(3, 1fr);
                 gap: 20px;
                 justify-content: center;
+                padding: 40px 0;
             }
             .card {
                 background: #ffffff;
@@ -100,10 +107,12 @@ async def main():
             .card h2 {
                 margin-top: 0;
                 color: #0071e3;
+                font-weight: 300;
             }
             .card p {
                 margin: 0;
                 color: #666;
+                font-weight: 300;
             }
             .card a {
                 display: inline-block;
@@ -113,10 +122,12 @@ async def main():
                 color: #fff;
                 text-decoration: none;
                 border-radius: 5px;
-                transition: background-color 0.3s ease;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 0 0 10px rgba(0, 113, 227, 0.5);
             }
             .card a:hover {
                 background-color: #005bb5;
+                box-shadow: 0 0 20px rgba(0, 113, 227, 0.7);
             }
             .skills, .contact {
                 background: #ffffff;
@@ -128,6 +139,7 @@ async def main():
             }
             .skills h2, .contact h2 {
                 color: #0071e3;
+                font-weight: 300;
             }
             .skills ul, .contact ul {
                 list-style: none;
