@@ -1,5 +1,5 @@
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI, Form
+from fastapi.responses import HTMLResponse, RedirectResponse
 
 app = FastAPI()
 
@@ -11,6 +11,7 @@ async def main():
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Aditya Thakkar - Personal website showcasing achievements in coding, robotics, and scouting.">
         <title>Aditya Thakkar</title>
         <style>
             body {
@@ -27,7 +28,7 @@ async def main():
             }
             nav {
                 background: #0071e3;
-                padding: 10px 20px;
+                padding: 15px 20px;
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
@@ -47,48 +48,36 @@ async def main():
                 color: #ccc;
             }
             .hero {
-                background: linear-gradient(to right, #0071e3, #00aaff), url('https://via.placeholder.com/1200x800') no-repeat center center/cover;
-                height: 100vh;
+                background: linear-gradient(rgba(0, 113, 227, 0.7), rgba(0, 113, 227, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+                padding: 100px 20px;
                 text-align: center;
                 color: #fff;
+                border-radius: 15px;
+                margin-bottom: 40px;
                 position: relative;
                 overflow: hidden;
-            }
-            .hero::after {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                pointer-events: none;
+                animation: fadeIn 1s ease-in-out;
             }
             .hero h1 {
                 margin: 0;
-                font-size: 4em;
+                font-size: 5em;
+                font-weight: bold;
                 z-index: 1;
                 position: relative;
-                font-weight: 300;
-                animation: fadeIn 2s ease-in-out;
+                animation: popUp 1s ease-in-out;
             }
             .hero p {
-                font-size: 1.5em;
+                font-size: 2em;
                 z-index: 1;
                 position: relative;
-                font-weight: 300;
-                animation: fadeIn 2s ease-in-out 1s;
-            }
-            @keyframes fadeIn {
-                from { opacity: 0; }
-                to { opacity: 1; }
+                animation: popUp 1.2s ease-in-out;
             }
             .content {
                 display: grid;
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
                 gap: 20px;
                 justify-content: center;
-                padding: 40px 0;
+                animation: fadeIn 1s ease-in-out;
             }
             .card {
                 background: #ffffff;
@@ -99,6 +88,7 @@ async def main():
                 text-align: center;
                 position: relative;
                 overflow: hidden;
+                animation: popUp 1.4s ease-in-out;
             }
             .card:hover {
                 transform: translateY(-10px);
@@ -107,27 +97,23 @@ async def main():
             .card h2 {
                 margin-top: 0;
                 color: #0071e3;
-                font-weight: 300;
             }
             .card p {
                 margin: 0;
                 color: #666;
-                font-weight: 300;
             }
             .card a {
                 display: inline-block;
                 margin-top: 10px;
-                padding: 10px 20px;
+                padding: 12px 24px;
                 background-color: #0071e3;
                 color: #fff;
                 text-decoration: none;
-                border-radius: 5px;
-                transition: background-color 0.3s ease, box-shadow 0.3s ease;
-                box-shadow: 0 0 10px rgba(0, 113, 227, 0.5);
+                border-radius: 8px;
+                transition: background-color 0.3s ease;
             }
             .card a:hover {
                 background-color: #005bb5;
-                box-shadow: 0 0 20px rgba(0, 113, 227, 0.7);
             }
             .skills, .contact {
                 background: #ffffff;
@@ -136,10 +122,10 @@ async def main():
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 margin-top: 40px;
                 text-align: center;
+                animation: fadeIn 1s ease-in-out;
             }
             .skills h2, .contact h2 {
                 color: #0071e3;
-                font-weight: 300;
             }
             .skills ul, .contact ul {
                 list-style: none;
@@ -173,6 +159,7 @@ async def main():
                 border-radius: 15px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
                 margin-top: 40px;
+                animation: fadeIn 1s ease-in-out;
             }
             .footer-links {
                 display: flex;
@@ -188,9 +175,188 @@ async def main():
             .footer-links a:hover {
                 color: #ccc;
             }
+            .dark-mode-toggle {
+                position: fixed;
+                top: 80px; /* Adjusted from 60px to 80px */
+                right: 20px;
+                background: #0071e3;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+            .dark-mode-toggle:hover {
+                background: #005bb5;
+            }
+            .dark-mode {
+                background: #000;
+                color: #f0f4f8;
+            }
+            .dark-mode nav {
+                background: #000;
+            }
+            .dark-mode .hero {
+                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+            }
+            .dark-mode .card {
+                background: #222;
+                color: #f0f4f8;
+            }
+            .dark-mode .skills, .dark-mode .contact {
+                background: #222;
+                color: #f0f4f8;
+            }
+            .dark-mode footer {
+                background: #000;
+            }
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+                to {
+                    opacity: 1;
+                }
+            }
+            @keyframes popUp {
+                0% {
+                    transform: scale(0.8);
+                    opacity: 0;
+                }
+                100% {
+                    transform: scale(1);
+                    opacity: 1;
+                }
+            }
+            @keyframes slideIn {
+                from {
+                    transform: translateX(-100%);
+                    opacity: 0;
+                }
+                to {
+                    transform: translateX(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes rotateIn {
+                from {
+                    transform: rotate(-360deg);
+                    opacity: 0;
+                }
+                to {
+                    transform: rotate(0);
+                    opacity: 1;
+                }
+            }
+            @keyframes bounceIn {
+                0%, 20%, 50%, 80%, 100% {
+                    transform: translateY(0);
+                }
+                40% {
+                    transform: translateY(-30px);
+                }
+                60% {
+                    transform: translateY(-15px);
+                }
+            }
+            .hero, .content, .skills, .contact, footer {
+                animation: fadeIn 1s ease-in-out;
+            }
+            .card {
+                animation: slideIn 1s ease-in-out;
+            }
+            .logo {
+                font-size: 1.5em;
+                font-weight: bold;
+                animation: popUp 1s ease-in-out;
+            }
+            .nav-links a {
+                animation: popUp 1.2s ease-in-out;
+            }
+            .hero h1, .hero p {
+                animation: popUp 1.4s ease-in-out;
+            }
+            .skills, .contact {
+                animation: fadeIn 1.6s ease-in-out;
+            }
+            .footer-links a {
+                animation: popUp 1.8s ease-in-out;
+            }
+            .scroll-to-top {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: #0071e3;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+                display: none;
+                animation: bounceIn 2s infinite;
+            }
+            .scroll-to-top:hover {
+                background: #005bb5;
+            }
+            .parallax {
+                background: url('https://via.placeholder.com/1200x800') no-repeat center center/cover;
+                height: 400px;
+                position: relative;
+                background-attachment: fixed;
+                background-size: cover;
+                animation: fadeIn 1s ease-in-out;
+            }
+            .parallax h2 {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: #fff;
+                font-size: 3em;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+                animation: popUp 1.5s ease-in-out;
+            }
+            .animated-button {
+                display: inline-block;
+                padding: 12px 24px;
+                margin-top: 20px;
+                font-size: 1em;
+                font-weight: bold;
+                color: #fff;
+                background-color: #0071e3;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+                animation: rotateIn 1s ease-in-out;
+            }
+            .animated-button:hover {
+                background-color: #005bb5;
+                transform: scale(1.1);
+            }
+            .animated-background {
+                background: linear-gradient(270deg, #0071e3, #005bb5, #003f7f);
+                background-size: 600% 600%;
+                animation: gradientShift 10s ease infinite;
+            }
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
         </style>
     </head>
-    <body>
+    <body class="animated-background">
+        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <button class="scroll-to-top" onclick="scrollToTop()">Scroll to Top</button>
         <nav>
             <div class="logo">Aditya Thakkar</div>
             <div class="nav-links">
@@ -202,7 +368,8 @@ async def main():
         <div class="container">
             <div class="hero">
                 <h1>Welcome to My Personal Website</h1>
-                <p>Discover my achievements, skills, and how to contact me.</p>
+                <p>A glimpse into my journey in coding, robotics, and leadership.</p>
+                <button class="animated-button">Learn More</button>
             </div>
             <div class="content">
                 <div class="card">
@@ -220,6 +387,9 @@ async def main():
                     <p>I am part of Bellarmine's world champion FRC Team, the Cheesy Poofs. (software division)</p>
                     <a href="https://www.team254.com/" target="_blank">Learn More</a>
                 </div>
+            </div>
+            <div class="parallax">
+                <h2>Explore More</h2>
             </div>
             <div class="skills" id="skills">
                 <h2>Skills</h2>
@@ -248,6 +418,22 @@ async def main():
                 </div>
             </footer>
         </div>
+        <script>
+            function toggleDarkMode() {
+                document.body.classList.toggle('dark-mode');
+            }
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+            window.addEventListener('scroll', function() {
+                const scrollToTopButton = document.querySelector('.scroll-to-top');
+                if (window.scrollY > 300) {
+                    scrollToTopButton.style.display = 'block';
+                } else {
+                    scrollToTopButton.style.display = 'none';
+                }
+            });
+        </script>
     </body>
     </html>
     """
