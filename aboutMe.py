@@ -17,8 +17,8 @@ async def main():
             body {
                 margin: 0;
                 font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                background: #f0f4f8;
-                color: #333;
+                background: #FEF3C7;
+                color: #3D3D3D;
                 scroll-behavior: smooth;
             }
             .container {
@@ -27,7 +27,7 @@ async def main():
                 padding: 20px;
             }
             nav {
-                background: #0071e3;
+                background: #F97316;
                 padding: 15px 20px;
                 display: flex;
                 justify-content: space-between;
@@ -45,10 +45,10 @@ async def main():
                 transition: color 0.3s ease;
             }
             nav a:hover {
-                color: #ccc;
+                color: #FDE047;
             }
             .hero {
-                background: linear-gradient(rgba(0, 113, 227, 0.7), rgba(0, 113, 227, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+                background: linear-gradient(rgba(249, 115, 22, 0.7), rgba(249, 115, 22, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
                 padding: 100px 20px;
                 text-align: center;
                 color: #fff;
@@ -96,7 +96,7 @@ async def main():
             }
             .card h2 {
                 margin-top: 0;
-                color: #0071e3;
+                color: #F97316;
             }
             .card p {
                 margin: 0;
@@ -106,14 +106,14 @@ async def main():
                 display: inline-block;
                 margin-top: 10px;
                 padding: 12px 24px;
-                background-color: #0071e3;
+                background-color: #FDE047;
                 color: #fff;
                 text-decoration: none;
                 border-radius: 8px;
                 transition: background-color 0.3s ease;
             }
             .card a:hover {
-                background-color: #005bb5;
+                background-color: #F97316;
             }
             .skills, .contact {
                 background: #ffffff;
@@ -125,7 +125,7 @@ async def main():
                 animation: fadeIn 1s ease-in-out;
             }
             .skills h2, .contact h2 {
-                color: #0071e3;
+                color: #F97316;
             }
             .skills ul, .contact ul {
                 list-style: none;
@@ -133,7 +133,7 @@ async def main():
                 margin: 0;
             }
             .skills li, .contact li {
-                background: #f0f4f8;
+                background: #FEF3C7;
                 margin: 10px 0;
                 padding: 10px;
                 border-radius: 10px;
@@ -145,7 +145,7 @@ async def main():
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
             .contact a {
-                color: #0071e3;
+                color: #F97316;
                 text-decoration: none;
             }
             .contact a:hover {
@@ -154,7 +154,7 @@ async def main():
             footer {
                 text-align: center;
                 padding: 20px;
-                background: #0071e3;
+                background: #F97316;
                 color: #fff;
                 border-radius: 15px;
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -173,13 +173,13 @@ async def main():
                 transition: color 0.3s ease;
             }
             .footer-links a:hover {
-                color: #ccc;
+                color: #EAB308;
             }
             .dark-mode-toggle {
                 position: fixed;
                 top: 80px; /* Adjusted from 60px to 80px */
                 right: 20px;
-                background: #0071e3;
+                background: #F97316;
                 color: #fff;
                 border: none;
                 padding: 10px;
@@ -188,7 +188,7 @@ async def main():
                 transition: background 0.3s ease;
             }
             .dark-mode-toggle:hover {
-                background: #005bb5;
+                background: #FDE047;
             }
             .dark-mode {
                 background: #000;
@@ -287,7 +287,7 @@ async def main():
                 position: fixed;
                 bottom: 20px;
                 right: 20px;
-                background: #0071e3;
+                background: #F97316;
                 color: #fff;
                 border: none;
                 padding: 10px;
@@ -298,7 +298,7 @@ async def main():
                 animation: bounceIn 2s infinite;
             }
             .scroll-to-top:hover {
-                background: #005bb5;
+                background: #FDE047;
             }
             .parallax {
                 background: url('https://via.placeholder.com/1200x800') no-repeat center center/cover;
@@ -325,7 +325,7 @@ async def main():
                 font-size: 1em;
                 font-weight: bold;
                 color: #fff;
-                background-color: #0071e3;
+                background-color: #FDE047;
                 border: none;
                 border-radius: 8px;
                 cursor: pointer;
@@ -333,11 +333,11 @@ async def main():
                 animation: rotateIn 1s ease-in-out;
             }
             .animated-button:hover {
-                background-color: #005bb5;
+                background-color: #F97316;
                 transform: scale(1.1);
             }
             .animated-background {
-                background: linear-gradient(270deg, #0071e3, #005bb5, #003f7f);
+                background: linear-gradient(270deg, #F97316, #FDE047, #38BDF8);
                 background-size: 600% 600%;
                 animation: gradientShift 10s ease infinite;
             }
@@ -350,6 +350,21 @@ async def main():
                 }
                 100% {
                     background-position: 0% 50%;
+                }
+            }
+            .animated-text {
+                display: inline-block;
+                font-size: 2em;
+                font-weight: bold;
+                color: #FDE047;
+                animation: textGlow 1.5s ease-in-out infinite alternate;
+            }
+            @keyframes textGlow {
+                from {
+                    text-shadow: 0 0 10px #FDE047, 0 0 20px #FDE047, 0 0 30px #FDE047, 0 0 40px #FDE047, 0 0 50px #FDE047, 0 0 60px #FDE047, 0 0 70px #FDE047;
+                }
+                to {
+                    text-shadow: 0 0 20px #38BDF8, 0 0 30px #38BDF8, 0 0 40px #38BDF8, 0 0 50px #38BDF8, 0 0 60px #38BDF8, 0 0 70px #38BDF8, 0 0 80px #38BDF8;
                 }
             }
         </style>
