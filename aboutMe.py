@@ -56,7 +56,7 @@ async def main():
                 margin-bottom: 40px;
                 position: relative;
                 overflow: hidden;
-                animation: fadeIn 1s ease-in-out;
+                animation: fadeIn 1s ease-in-out, glow 1.5s ease-in-out infinite alternate;
             }
             .hero h1 {
                 margin: 0;
@@ -91,8 +91,8 @@ async def main():
                 animation: popUp 1.4s ease-in-out;
             }
             .card:hover {
-                transform: translateY(-10px);
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+                transform: translateY(-10px) scale(1.05);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             }
             .card h2 {
                 margin-top: 0;
@@ -191,25 +191,116 @@ async def main():
                 background: #FDE047;
             }
             .dark-mode {
-                background: #000;
-                color: #f0f4f8;
+                background: #121212;
+                color: #e0e0e0;
             }
             .dark-mode nav {
-                background: #000;
+                background: #1f1f1f;
             }
             .dark-mode .hero {
-                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+                background: linear-gradient(rgba(31, 31, 31, 0.7), rgba(31, 31, 31, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+                color: #e0e0e0;
             }
             .dark-mode .card {
-                background: #222;
-                color: #f0f4f8;
+                background: #1f1f1f;
+                color: #e0e0e0;
             }
             .dark-mode .skills, .dark-mode .contact {
-                background: #222;
-                color: #f0f4f8;
+                background: #1f1f1f;
+                color: #e0e0e0;
             }
             .dark-mode footer {
-                background: #000;
+                background: #1f1f1f;
+                color: #e0e0e0;
+            }
+            .dark-mode .footer-links a {
+                color: #bb86fc;
+            }
+            .dark-mode .footer-links a:hover {
+                color: #e0e0e0;
+            }
+            .dark-mode .scroll-to-top {
+                background: #bb86fc;
+                color: #121212;
+            }
+            .dark-mode .scroll-to-top:hover {
+                background: #3700b3;
+            }
+            .dark-mode .color-scheme-toggle {
+                background: #bb86fc;
+                color: #121212;
+            }
+            .dark-mode .color-scheme-toggle:hover {
+                background: #3700b3;
+            }
+            .dark-mode .go-back-button {
+                background: linear-gradient(135deg, #bb86fc, #3700b3);
+                color: #121212;
+                border: none;
+                padding: 16px 32px; /* Increased padding */
+                font-size: 1.2em; /* Increased font size */
+                border-radius: 24px; /* More rounded corners */
+                cursor: pointer;
+                transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+                box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Increased shadow */
+                position: relative;
+                overflow: hidden;
+            }
+            .dark-mode .go-back-button::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.1);
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .dark-mode .go-back-button:hover::before {
+                opacity: 1;
+            }
+            .dark-mode .go-back-button:hover {
+                background: linear-gradient(135deg, #3700b3, #bb86fc);
+                transform: scale(1.1); /* Increased scale */
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Increased shadow */
+            }
+            .dark-mode .go-back-button:active {
+                transform: scale(0.95);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+            .dark-mode .go-back-button span {
+                position: relative;
+                z-index: 1;
+                margin-left: -10px; /* Move the arrow to the left */
+            }
+            .dark-mode .go-back-button::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                width: 300%;
+                height: 300%;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+                transition: width 0.3s ease, height 0.3s ease, top 0.3s ease, left 0.3s ease;
+                transform: translate(-50%, -50%);
+                opacity: 0;
+            }
+            .dark-mode .go-back-button:hover::after {
+                width: 100%;
+                height: 100%;
+                top: 50%;
+                left: 50%;
+                opacity: 1;
+            }
+            .dark-mode .highlighted::before {
+                border-color: #bb86fc;
+            }
+            .dark-mode .highlighted {
+                box-shadow: 0 0 20px #bb86fc;
+            }
+            .dark-mode .highlighted::before {
+                box-shadow: 0 0 20px #bb86fc;
             }
             @keyframes fadeIn {
                 from {
@@ -457,10 +548,123 @@ async def main():
                 background-color: #FDE047;
                 transform: scale(1.1);
             }
+            .default {
+                background: #FEF3C7;
+                color: #3D3D3D;
+            }
+            .dark {
+                background: #000;
+                color: #f0f4f8;
+            }
+            .dark nav {
+                background: #000;
+            }
+            .dark .hero {
+                background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+            }
+            .dark .card {
+                background: #222;
+                color: #f0f4f8;
+            }
+            .dark .skills, .dark .contact {
+                background: #222;
+                color: #f0f4f8;
+            }
+            .dark footer {
+                background: #000;
+            }
+            .blue {
+                background: #E0F7FA;
+                color: #00796B;
+            }
+            .blue nav {
+                background: #00796B;
+            }
+            .blue .hero {
+                background: linear-gradient(rgba(0, 121, 107, 0.7), rgba(0, 121, 107, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+            }
+            .blue .card {
+                background: #B2EBF2;
+                color: #00796B;
+            }
+            .blue .skills, .blue .contact {
+                background: #B2EBF2;
+                color: #00796B;
+            }
+            .blue footer {
+                background: #00796B;
+            }
+            .green {
+                background: #E8F5E9;
+                color: #388E3C;
+            }
+            .green nav {
+                background: #388E3C;
+            }
+            .green .hero {
+                background: linear-gradient(rgba(56, 142, 60, 0.7), rgba(56, 142, 60, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+            }
+            .green .card {
+                background: #C8E6C9;
+                color: #388E3C;
+            }
+            .green .skills, .green .contact {
+                background: #C8E6C9;
+                color: #388E3C;
+            }
+            .green footer {
+                background: #388E3C;
+            }
+            /* Add a glowing effect to the hero section */
+            .hero {
+                animation: glow 1.5s ease-in-out infinite alternate;
+            }
+
+            @keyframes glow {
+                from {
+                    box-shadow: 0 0 10px #F97316, 0 0 20px #F97316, 0 0 30px #F97316, 0 0 40px #F97316;
+                }
+                to {
+                    box-shadow: 0 0 20px #FDE047, 0 0 30px #FDE047, 0 0 40px #FDE047, 0 0 50px #FDE047;
+                }
+            }
+
+            /* Add a hover effect to the cards */
+            .card:hover {
+                transform: translateY(-10px) scale(1.05);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            }
+
+            /* Add a smooth scroll effect */
+            html {
+                scroll-behavior: smooth;
+            }
+
+            /* Add a fade-in effect to the sections */
+            .fade-in {
+                opacity: 0;
+                animation: fadeIn 1s forwards;
+            }
+
+            @keyframes fadeIn {
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Ensure skills section is readable in dark mode */
+            .dark-mode .skills {
+                color: #ff0000; /* Change font color to red */
+            }
         </style>
     </head>
     <body class="animated-background">
-        <button class="dark-mode-toggle" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+        <select class="color-scheme-toggle" onchange="changeColorScheme(this.value)">
+            <option value="default">Default</option>
+            <option value="dark">Dark Mode</option>
+            <option value="blue">Blue Theme</option>
+            <option value="green">Green Theme</option>
+        </select>
         <button class="scroll-to-top" onclick="scrollToTop()">Scroll to Top</button>
         <nav>
             <div class="logo">Aditya Thakkar</div>
@@ -472,9 +676,8 @@ async def main():
         </nav>
         <div class="container">
             <div class="hero">
-                <h1>Welcome to My Personal Website</h1>
+                <h1>"First, learn the system. Then, break the system. Finally, build a better one." - Aditya Thakkar</h1>
                 <p>A glimpse into my journey in coding, robotics, and leadership.</p>
-                <button class="animated-button">Learn More</button>
             </div>
             <div class="content">
                 <div class="card" style="margin-bottom: 40px;">
@@ -505,7 +708,7 @@ async def main():
             <div class="parallax">
                 <h2>Explore More</h2>
             </div>
-            <div class="skills" id="skills" style="margin-bottom: 40px;">
+            <div class="skills fade-in" id="skills" style="margin-bottom: 40px;">
                 <h2>Skills</h2>
                 <ul>
                     <li>Leadership</li>
@@ -515,22 +718,22 @@ async def main():
                     <li>Teamwork</li>
                 </ul>
             </div>
-            <div class="scouting-details card" id="scouting-details" style="margin-bottom: 40px;">
+            <div class="scouting-details card fade-in" id="scouting-details" style="margin-bottom: 40px;">
                 <h2>Scouting Achievements</h2>
                 <p>As a Life Scout nearing Eagle Scout, I’ve developed strong leadership and problem-solving skills through hands-on experiences. During a 7-day campout at Camp Oljato, I led a project to dig up an exposed water pipe, coordinating a team of scouts and keeping morale high despite the heat and tough conditions. Seeing the campsite transformed after all our hard work was incredibly rewarding. On another occasion, I organized a beach cleanup during a 3-day campout, where we had to adapt to unexpected challenges like bad weather and a shortage of supplies. These experiences taught me resilience, adaptability, and the importance of giving back to the community. Scouting has shaped my ability to lead, work as a team, and stay determined even when things don’t go as planned.</p>
                 <button class="go-back-button" onclick="revertHighlight('scouting-details')">Go Back</button>
             </div>
-            <div class="volunteering-details card" id="volunteering-details" style="margin-bottom: 40px;">
+            <div class="volunteering-details card fade-in" id="volunteering-details" style="margin-bottom: 40px;">
                 <h2>Volunteering Experience</h2>
                 <p>Over the summer, I had the opportunity to volunteer at ATRIA Senior Living, where I assisted seniors with their daily activities and helped organize events to enrich their lives. This experience allowed me to develop strong communication and interpersonal skills as I engaged with residents, listened to their stories, and ensured they felt valued and supported. I also learned the importance of patience, empathy, and adaptability while assisting individuals with varying needs. Through event planning and coordination, I honed my organizational and leadership abilities, ensuring activities ran smoothly and were enjoyable for everyone. This experience not only deepened my appreciation for community service but also reinforced my ability to work in a team-oriented environment while making a meaningful impact on others’ lives.</p>
                 <button class="go-back-button" onclick="revertHighlight('volunteering-details')">Go Back</button>
             </div>
-            <div class="usaco-details card" id="usaco-details" style="margin-bottom: 40px;">
+            <div class="usaco-details card fade-in" id="usaco-details" style="margin-bottom: 40px;">
                 <h2>USACO Achievements</h2>
                 <p>I reached the USACO Silver level, which was a big milestone in my competitive programming journey. Getting there took a lot of problem-solving, persistence, and creative thinking. Along the way, I sharpened my skills in algorithms and data structures, learning how to break down complex problems and find efficient solutions under time constraints. Competing in USACO also taught me how to think critically and approach challenges methodically, which has helped me in both academics and real-world coding projects. It’s been a rewarding experience, and I’m excited to keep pushing my skills further.</p>
                 <button class="go-back-button" onclick="revertHighlight('usaco-details')">Go Back</button>
             </div>
-            <div class="frc-details card" id="frc-details" style="margin-bottom: 40px;">
+            <div class="frc-details card fade-in" id="frc-details" style="margin-bottom: 40px;">
                 <h2>FRC Robotics</h2>
                 <p>Being part of the software team on the world’s #1 FRC robotics team, the Cheesy Poofs, has been one of the most defining experiences in my STEM journey. Robotics isn’t just about building machines—it’s about innovation, teamwork, and solving real-world problems under pressure. I’ve contributed to programming autonomous routines and teleoperated functions, ensuring our robot performs at the highest level in competition. Seeing our code come to life on the field and play a role in our success at the world championships has been incredibly rewarding.
 
@@ -539,7 +742,7 @@ Through FRC, I’ve learned to collaborate with a team of highly skilled enginee
 This experience has fueled my passion for AI and machine learning, as I’ve seen firsthand how automation and intelligent systems can make a difference in competitive robotics. Whether it’s optimizing motion paths or improving sensor-based decision-making, I’m excited to continue exploring the intersection of robotics and artificial intelligence in the future.</p>
                 <button class="go-back-button" onclick="revertHighlight('frc-details')">Go Back</button>
             </div>
-            <div class="contact" id="contact">
+            <div class="contact fade-in" id="contact">
                 <h2>Contact</h2>
                 <ul>
                     <li>Email: <a href="mailto:aditya.thakkar.2020@gmail.com">aditya.thakkar.2020@gmail.com</a></li>
@@ -556,8 +759,8 @@ This experience has fueled my passion for AI and machine learning, as I’ve see
                 </div>
             </footer>
          <script>
-            function toggleDarkMode() {
-                document.body.classList.toggle('dark-mode');
+            function changeColorScheme(scheme) {
+                document.body.className = scheme;
             }
             function scrollToTop() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -595,8 +798,52 @@ This experience has fueled my passion for AI and machine learning, as I’ve see
                     scrollToTopButton.style.display = 'none';
                 }
             });
+
+            // Add a fade-in effect to the sections when they come into view
+            const sections = document.querySelectorAll('.fade-in');
+            const options = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, options);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Add a smooth scroll effect to the navigation links
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
         </script>
         <style>
+            .color-scheme-toggle {
+                position: fixed;
+                top: 80px;
+                right: 20px;
+                background: #F97316;
+                color: #fff;
+                border: none;
+                padding: 10px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background 0.3s ease;
+            }
+            .color-scheme-toggle:hover {
+                background: #FDE047;
+            }
             .highlighted {
                 position: relative;
                 animation: pulse 1.5s infinite, glow 1.5s ease-in-out infinite alternate, bounce 2s infinite;
