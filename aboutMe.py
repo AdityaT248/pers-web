@@ -184,7 +184,7 @@ async def main():
                 border: none;
                 padding: 10px;
                 border-radius: 5px;
-                cursor: pointer;
+                cursor: button;
                 transition: background 0.3s ease;
             }
             .dark-mode-toggle:hover {
@@ -477,33 +477,35 @@ async def main():
                 <button class="animated-button">Learn More</button>
             </div>
             <div class="content">
-                <div class="card">
+                <div class="card" style="margin-bottom: 40px;">
                     <h2>Scouting Achievements</h2>
                     <p>I am a Life Scout and almost an Eagle Scout. Scouting has taught me valuable skills and leadership qualities.</p>
-                    <a href="https://www.scouting.org/" target="_blank">Visit the scouting website</a>
+                    <a href="#scouting-details" class="animated-button" onclick="highlightSection('scouting-details')">Learn More</a>
+                    <a href="https://www.scouting.org/" target="_blank">Visit scouting.org</a>
                 </div>
-                <div class="card">
-                <h2>Volunteering</h2>
-                <p>I have actively participated in various volunteering activities, contributing to community service and development.</p>
-                <a href="#volunteering-details" class="animated-button" onclick="highlightSection('volunteering-details')">Learn More</a>
-                <a href="https://www.atriaseniorliving.com/" target="_blank">Atria Senior Living</a>
-            </div>
-                <div class="card">
+                <div class="card" style="margin-bottom: 40px;">
+                    <h2>Volunteering</h2>
+                    <p>I have actively participated in various volunteering activities, contributing to community service and development.</p>
+                    <a href="#volunteering-details" class="animated-button" onclick="highlightSection('volunteering-details')">Learn More</a>
+                    <a href="https://www.atriaseniorliving.com/" target="_blank">Atria Senior Living</a>
+                </div>
+                <div class="card" style="margin-bottom: 40px;">
                     <h2>USACO Achievements</h2>
                     <p>I have achieved the USACO Silver level, showcasing my skills in competitive programming and problem-solving.</p>
-                    <a href="#usaco-details" class="animated-button">Learn More</a>
+                    <a href="#usaco-details" class="animated-button" onclick="highlightSection('usaco-details')">Learn More</a>
                     <a href="http://www.usaco.org/" target="_blank">Visit usaco.org</a>
                 </div>
-                <div class="card">
+                <div class="card" style="margin-bottom: 40px;">
                     <h2>FRC Robotics</h2>
                     <p>I am part of Bellarmine's world champion FRC Team, the Cheesy Poofs. (software division)</p>
-                    <a href="https://www.team254.com/" target="_blank">Learn More</a>
+                    <a href="#frc-details" class="animated-button" onclick="highlightSection('frc-details')">Learn More</a>
+                    <a href="https://www.team254.com/" target="_blank">Visit team254.com</a>
                 </div>
             </div>
             <div class="parallax">
                 <h2>Explore More</h2>
             </div>
-            <div class="skills" id="skills">
+            <div class="skills" id="skills" style="margin-bottom: 40px;">
                 <h2>Skills</h2>
                 <ul>
                     <li>Leadership</li>
@@ -513,21 +515,35 @@ async def main():
                     <li>Teamwork</li>
                 </ul>
             </div>
-            <div class="volunteering-details" id="volunteering-details">
+            <div class="scouting-details card" id="scouting-details" style="margin-bottom: 40px;">
+                <h2>Scouting Achievements</h2>
+                <p>As a Life Scout nearing Eagle Scout, I’ve developed strong leadership and problem-solving skills through hands-on experiences. During a 7-day campout at Camp Oljato, I led a project to dig up an exposed water pipe, coordinating a team of scouts and keeping morale high despite the heat and tough conditions. Seeing the campsite transformed after all our hard work was incredibly rewarding. On another occasion, I organized a beach cleanup during a 3-day campout, where we had to adapt to unexpected challenges like bad weather and a shortage of supplies. These experiences taught me resilience, adaptability, and the importance of giving back to the community. Scouting has shaped my ability to lead, work as a team, and stay determined even when things don’t go as planned.</p>
+                <button class="go-back-button" onclick="revertHighlight('scouting-details')">Go Back</button>
+            </div>
+            <div class="volunteering-details card" id="volunteering-details" style="margin-bottom: 40px;">
                 <h2>Volunteering Experience</h2>
                 <p>Over the summer, I had the opportunity to volunteer at ATRIA Senior Living, where I assisted seniors with their daily activities and helped organize events to enrich their lives. This experience allowed me to develop strong communication and interpersonal skills as I engaged with residents, listened to their stories, and ensured they felt valued and supported. I also learned the importance of patience, empathy, and adaptability while assisting individuals with varying needs. Through event planning and coordination, I honed my organizational and leadership abilities, ensuring activities ran smoothly and were enjoyable for everyone. This experience not only deepened my appreciation for community service but also reinforced my ability to work in a team-oriented environment while making a meaningful impact on others’ lives.</p>
-                <button class="go-back-button" onclick="revertHighlight()">Go Back</button>
+                <button class="go-back-button" onclick="revertHighlight('volunteering-details')">Go Back</button>
             </div>
-            <div class="usaco-details" id="usaco-details">
+            <div class="usaco-details card" id="usaco-details" style="margin-bottom: 40px;">
                 <h2>USACO Achievements</h2>
                 <p>I reached the USACO Silver level, which was a big milestone in my competitive programming journey. Getting there took a lot of problem-solving, persistence, and creative thinking. Along the way, I sharpened my skills in algorithms and data structures, learning how to break down complex problems and find efficient solutions under time constraints. Competing in USACO also taught me how to think critically and approach challenges methodically, which has helped me in both academics and real-world coding projects. It’s been a rewarding experience, and I’m excited to keep pushing my skills further.</p>
-                <button class="go-back-button" onclick="revertHighlight()">Go Back</button>
+                <button class="go-back-button" onclick="revertHighlight('usaco-details')">Go Back</button>
+            </div>
+            <div class="frc-details card" id="frc-details" style="margin-bottom: 40px;">
+                <h2>FRC Robotics</h2>
+                <p>Being part of the software team on the world’s #1 FRC robotics team, the Cheesy Poofs, has been one of the most defining experiences in my STEM journey. Robotics isn’t just about building machines—it’s about innovation, teamwork, and solving real-world problems under pressure. I’ve contributed to programming autonomous routines and teleoperated functions, ensuring our robot performs at the highest level in competition. Seeing our code come to life on the field and play a role in our success at the world championships has been incredibly rewarding.
+
+Through FRC, I’ve learned to collaborate with a team of highly skilled engineers, troubleshoot complex issues under tight deadlines, and think critically about software-hardware integration. The fast-paced, high-stakes environment of robotics competitions has strengthened my ability to work under pressure, debug efficiently, and continuously improve my coding skills. Beyond just technical knowledge, FRC has taught me the importance of communication and teamwork—working alongside mechanical and electrical teams to ensure seamless robot performance.
+
+This experience has fueled my passion for AI and machine learning, as I’ve seen firsthand how automation and intelligent systems can make a difference in competitive robotics. Whether it’s optimizing motion paths or improving sensor-based decision-making, I’m excited to continue exploring the intersection of robotics and artificial intelligence in the future.</p>
+                <button class="go-back-button" onclick="revertHighlight('frc-details')">Go Back</button>
             </div>
             <div class="contact" id="contact">
                 <h2>Contact</h2>
                 <ul>
                     <li>Email: <a href="mailto:aditya.thakkar.2020@gmail.com">aditya.thakkar.2020@gmail.com</a></li>
-                    <li>Phone: <a href="tel:+16508614105">(650) 861-4105</a></li>
+                    <li>Github: <a href="https://github.com/AdityaT248">https://github.com/AdityaT248</a></li>
                     <li>LinkedIn: <a href="https://www.linkedin.com/in/aditya-thakkar-37206a27a/" target="_blank">https://www.linkedin.com/in/aditya-thakkar-37206a27a/</a></li>
                 </ul>
             </div>
@@ -535,7 +551,7 @@ async def main():
                 <p>&copy; 2025 Aditya Thakkar. All rights reserved.</p>
                 <div class="footer-links">
                     <a href="mailto:aditya.thakkar.2020@gmail.com">Email me</a>
-                    <a href="tel:+16508614105">Call</a>
+                    <a href="https://github.com/AdityaT248">Github</a>
                     <a href="https://www.linkedin.com/in/aditya-thakkar-37206a27a/" target="_blank">Connect on LinkedIn</a>
                 </div>
             </footer>
@@ -559,8 +575,8 @@ async def main():
                 section.style.transform = 'scale(1.05)';
                 section.classList.add('highlighted');
             }
-            function revertHighlight() {
-                const section = document.getElementById('volunteering-details');
+            function revertHighlight(id) {
+                const section = document.getElementById(id);
                 section.style.backgroundColor = '';
                 section.style.boxShadow = '';
                 section.style.border = '';
