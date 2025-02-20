@@ -3,7 +3,9 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 
 app = FastAPI()
 
-@app.get("/", response_class=HTMLResponse)
+#@app.get("/", response_class=HTMLResponse)
+#@app.api_route("/", methods=["GET", "HEAD"])
+@app.api_route("/", methods=["GET", "HEAD"], response_class=HTMLResponse)
 async def main():
     content = """
     <!DOCTYPE html>
