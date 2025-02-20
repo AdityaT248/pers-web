@@ -814,10 +814,156 @@ async def main():
             .skills li {
                 color: #3D3D3D; /* Set a specific color that does not change in dark mode */
             }
+            .skills li {
+                cursor: pointer;
+                position: relative;
+                transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            }
+
+            .skills li:hover {
+                background-color: #FDE047;
+                color: #3D3D3D;
+                transform: scale(1.05);
+            }
+
+            .skills li::after {
+                content: '▼';
+                position: absolute;
+                right: 10px;
+                font-size: 0.8em;
+                transition: transform 0.3s ease;
+            }
+
+            .skills li.expand::after {
+                transform: rotate(180deg);
+            }
             .color-scheme-toggle {
                 transition: background 0.3s ease, color 0.3s ease;
             }
+            @keyframes expandAnimation {
+                from {
+                    max-height: 0;
+                    opacity: 0;
+                }
+                to {
+                    max-height: 500px; /* Adjust as needed */
+                    opacity: 1;
+                }
+            }
+
+            @keyframes collapseAnimation {
+                from {
+                    max-height: 500px; /* Adjust as needed */
+                    opacity: 1;
+                }
+                to {
+                    max-height: 0;
+                    opacity: 0;
+                }
+            }
+
+            .expand {
+                animation: expandAnimation 0.5s ease-out forwards;
+            }
+
+            .collapse {
+                animation: collapseAnimation 0.5s ease-out forwards;
+            }
+
+            .emphasize {
+                font-weight: bold;
+                background-color: #FFF3CD;
+                padding: 10px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease, font-weight 0.3s ease;
+            }
         </style>
+        <!-- Add this inside the <head> tag, within the <script> section -->
+        <script>
+            function toggleLeadershipDetails() {
+                const details = document.getElementById('leadership-details');
+                const listItem = details.previousElementSibling;
+                if (details.style.display === 'none' || details.style.display === '') {
+                    details.style.display = 'block';
+                    details.classList.add('expand', 'emphasize');
+                    details.classList.remove('collapse');
+                    listItem.classList.add('expand');
+                } else {
+                    details.style.display = 'none';
+                    details.classList.add('collapse');
+                    details.classList.remove('expand', 'emphasize');
+                    listItem.classList.remove('expand');
+                }
+            }
+        </script>
+        <script>
+            function toggleProgrammingDetails() {
+                const details = document.getElementById('programming-details');
+                const listItem = details.previousElementSibling;
+                if (details.style.display === 'none' || details.style.display === '') {
+                    details.style.display = 'block';
+                    details.classList.add('expand', 'emphasize');
+                    details.classList.remove('collapse');
+                    listItem.classList.add('expand');
+                } else {
+                    details.style.display = 'none';
+                    details.classList.add('collapse');
+                    details.classList.remove('expand', 'emphasize');
+                    listItem.classList.remove('expand');
+                }
+            }
+        </script>
+        <script>
+            function toggleRoboticsDetails() {
+                const details = document.getElementById('robotics-details');
+                const listItem = details.previousElementSibling;
+                if (details.style.display === 'none' || details.style.display === '') {
+                    details.style.display = 'block';
+                    details.classList.add('expand', 'emphasize');
+                    details.classList.remove('collapse');
+                    listItem.classList.add('expand');
+                } else {
+                    details.style.display = 'none';
+                    details.classList.add('collapse');
+                    details.classList.remove('expand', 'emphasize');
+                    listItem.classList.remove('expand');
+                }
+            }
+        </script>
+        <script>
+            function toggleProblemSolvingDetails() {
+                const details = document.getElementById('problem-solving-details');
+                const listItem = details.previousElementSibling;
+                if (details.style.display === 'none' || details.style.display === '') {
+                    details.style.display = 'block';
+                    details.classList.add('expand', 'emphasize');
+                    details.classList.remove('collapse');
+                    listItem.classList.add('expand');
+                } else {
+                    details.style.display = 'none';
+                    details.classList.add('collapse');
+                    details.classList.remove('expand', 'emphasize');
+                    listItem.classList.remove('expand');
+                }
+            }
+        </script>
+        <script>
+            function toggleTeamworkDetails() {
+                const details = document.getElementById('teamwork-details');
+                const listItem = details.previousElementSibling;
+                if (details.style.display === 'none' || details.style.display === '') {
+                    details.style.display = 'block';
+                    details.classList.add('expand', 'emphasize');
+                    details.classList.remove('collapse');
+                    listItem.classList.add('expand');
+                } else {
+                    details.style.display = 'none';
+                    details.classList.add('collapse');
+                    details.classList.remove('expand', 'emphasize');
+                    listItem.classList.remove('expand');
+                }
+            }
+        </script>
     </head>
     <body class="animated-background">
         <select class="color-scheme-toggle" onchange="changeColorScheme(this.value)">
@@ -876,11 +1022,26 @@ async def main():
             <div class="skills" id="skills" style="margin-bottom: 40px;">
                 <h2>Skills</h2>
                 <ul>
-                    <li>Leadership</li>
-                    <li>Programming (Python, Java, fastHTML)</li>
-                    <li>Robotics</li>
-                    <li>Problem Solving</li>
-                    <li>Teamwork</li>
+                    <li onclick="toggleLeadershipDetails()">Leadership</li>
+                    <div id="leadership-details" class="collapse" style="display: none; margin-top: 10px;">
+                        I’ve built leadership skills by being a Patrol Leader, and using EDGE training to guide my troop. In FRC robotics, I mentor freshmen, and I’ve led volunteer projects at campouts, strengthening my ability to organize and support a team.
+                    </div>
+                    <li onclick="toggleProgrammingDetails()">Programming (Python, Java, fastHTML)</li>
+                    <div id="programming-details" class="collapse" style="display: none; margin-top: 10px;">
+                        I’m a USACO Silver competitor and a key programmer for my FRC robotics team. I have experience with multiple languages and constantly seek to expand my coding skills.
+                    </div>
+                    <li onclick="toggleRoboticsDetails()">Robotics</li>
+                    <div id="robotics-details" class="collapse" style="display: none; margin-top: 10px;">
+                        I am part of the software team for the #1 FRC robotics team in the world, where I write code, develop tools like a 2D robot visualizer, and collaborate to improve robot functionality.
+                    </div>
+                    <li onclick="toggleProblemSolvingDetails()">Problem Solving</li>
+                    <div id="problem-solving-details" class="collapse" style="display: none; margin-top: 10px;">
+                        I excel at problem-solving, using logical and analytical thinking to find solutions to complex issues. My experience in competitive programming and robotics has honed my ability to tackle challenges effectively.
+                    </div>
+                    <li onclick="toggleTeamworkDetails()">Teamwork</li>
+                    <div id="teamwork-details" class="collapse" style="display: none; margin-top: 10px;">
+                        I have been working in teams since 5th grade, from FLL to my current role in FRC’s software division. In scouting, I collaborate closely with my patrol, building strong teamwork skills.
+                    </div>
                 </ul>
             </div>
             <div class="scouting-details card" id="scouting-details" style="margin-bottom: 40px;">
@@ -902,7 +1063,8 @@ async def main():
                 <h2>FRC Robotics</h2>
                 <p>Being part of the software team on the world’s #1 FRC robotics team, the Cheesy Poofs, has been one of the most defining experiences in my STEM journey. Robotics isn’t just about building machines—it’s about innovation, teamwork, and solving real-world problems under pressure. I’ve contributed to programming autonomous routines and teleoperated functions, ensuring our robot performs at the highest level in competition. Seeing our code come to life on the field and play a role in our success at the world championships has been incredibly rewarding.
 
-Through FRC, I’ve learned to collaborate with a team of highly skilled engineers, troubleshoot complex issues under tight deadlines, and think critically about software-hardware integration. The fast-paced, high-stakes environment of robotics competitions has strengthened my ability to work under pressure, debug efficiently, and continuously improve my coding skills. Beyond just technical knowledge, FRC has taught me the importance of communication and teamwork—working alongside mechanical and electrical teams to ensure seamless robot performance.
+                Through FRC, I’ve learned to collaborate with a team of highly skilled engineers, troubleshoot complex issues under tight deadlines, and think critically about software-hardware integration. The fast-paced, high-stakes environment of robotics competitions has strengthened my ability to work under pressure, debug efficiently, and continuously improve my coding skills. Beyond just technical knowledge, FRC has taught me the importance of communication and teamwork—working alongside mechanical and electrical teams to ensure seamless robot performance.</p>
+                <button class="go-back-button" onclick="revertHighlight('frc-details')">Go Back</button>
             </div>
             <div class="contact" id="contact">
                 <h2>Contact</h2>
