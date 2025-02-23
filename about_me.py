@@ -989,7 +989,7 @@ async def main():
         </nav>
         <div class="container">
             <div class="hero">
-                <h1>"First, learn the system. Then, break the system. Finally, build a better one." - Aditya Thakkar</h1>
+                <h1>"First, learn the system. Then, break the system. Finally, build a better one." ― Aditya Thakkar</h1>
                 <p>A glimpse into my journey in coding, robotics, and leadership.</p>
             </div>
             <div class="content">
