@@ -879,6 +879,7 @@ async def main():
                 border-radius: 5px;
                 transition: background-color 0.3s ease, font-weight 0.3s ease;
             }
+            
         </style>
         <!-- Add this inside the <head> tag, within the <script> section -->
         <script>
@@ -1091,9 +1092,33 @@ async def main():
             function scrollToTop() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault(); // Prevent instant jump
+
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                });
+            });
+
+            // Function for smooth scroll to top
+            function scrollToTop() {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
             function highlightSection(id) {
                 const section = document.getElementById(id);
-                section.style.transition = 'background-color 0.5s ease, box-shadow 0.5s ease, border 0.5s ease, font-size 0.5s ease, font-weight 0.5s ease, transform 0.5s ease';
+
+                // Remove any existing transition effects before applying new ones
+                section.style.transition = 'none';
+
+                // Force reflow (trick to reset styles)
+                void section.offsetWidth;
+
+                // Apply only the highlighting effect (no movement)
+                section.style.transition = 'background-color 0.5s ease, box-shadow 0.5s ease, border 0.5s ease, font-size 0.5s ease, font-weight 0.5s ease';
                 section.style.backgroundColor = '#FFF3CD';
                 section.style.boxShadow = '0 0 30px rgba(0, 0, 0, 0.5)';
                 section.style.border = '6px solid #F97316';
@@ -1101,9 +1126,11 @@ async def main():
                 section.style.fontSize = '1.2em';
                 section.style.fontWeight = 'bold';
                 section.style.padding = '40px'; // Increased padding
-                section.style.transform = 'scale(1.05)';
-                section.classList.add('highlighted');
+
+                // Remove transform effect if it was previously applied
+                section.style.transform = 'none';
             }
+
             function revertHighlight(id) {
                 const section = document.getElementById(id);
                 section.style.backgroundColor = '';
