@@ -1018,6 +1018,16 @@ async def main():
                     <a href="#frc-details" class="animated-button" onclick="highlightSection('frc-details')">Learn More</a>
                     <a href="https://www.team254.com/" target="_blank">Visit team254.com</a>
                 </div>
+                <div class="card" style="margin-bottom: 40px;">
+                    <h2>Opinions on AI</h2>
+                    <p>For the past few years, AI has become crucial in today's world, and here are my views on it. </p>
+                    <a href="#AI-opinion" class="animated-button" onclick="highlightSection('AI-opinion')">Learn More</a>
+                </div>
+                <div class="card" style="margin-bottom: 40px;">
+                    <h2>What Sets Me Apart</h2>
+                    <p>My reflection on what makes me different from others. </p>
+                    <a href="#difference" class="animated-button" onclick="highlightSection('difference')">Learn More</a>
+                </div>
             </div>
             <div class="parallax">
                 <h2>Explore More</h2>
@@ -1068,6 +1078,18 @@ async def main():
 
                 Through FRC, I’ve learned to collaborate with a team of highly skilled engineers, troubleshoot complex issues under tight deadlines, and think critically about software-hardware integration. The fast-paced, high-stakes environment of robotics competitions has strengthened my ability to work under pressure, debug efficiently, and continuously improve my coding skills. Beyond just technical knowledge, FRC has taught me the importance of communication and teamwork—working alongside mechanical and electrical teams to ensure seamless robot performance.</p>
                 <button class="go-back-button" onclick="revertHighlight('frc-details')">Go Back</button>
+            </div>
+            <div class="AI-opinion card" id="AI-opinion" style="margin-bottom: 40px;">
+                <h2>My opinion on AI</h2>
+                <p>Academic integrity today isn’t just copying answers, it’s about using tools like AI responsibly. AI can be incredibly helpful for brainstorming ideas or debugging code, but I learned that relying on it too much takes away the real experience. This is similar to how tools like mobile phones and the internet changed the way we learn and communicate. At first, they seemed like shortcuts, but over time, people realized their true value came from using them thoughtfully. In competitive programming and FRC robotics, I know that just looking up a solution won’t actually help me improve, it will just get me past the problem faster. If I get stuck, I’ll use it to help me understand a concept or help me develop a strategy for the problem, but I always make sure I can solve the problem and write the code on my own.</p>
+                <button class="go-back-button" onclick="revertHighlight('AI-opinion')">Go Back</button>
+            </div>
+            <div class="DifferenceCard" id="difference" style="margin-bottom: 40px;">
+                <h2>What Sets Me Apart</h2>
+                <p>What sets me apart is the combination of leadership, teamwork, and perseverance I’ve developed through diverse experiences. As a Life Scout nearing Eagle Scout, I’ve built a strong foundation in leadership and community service. During a 7-day campout at Camp Oljato, I led a project to dig up an exposed water pipe, coordinating scouts and keeping morale high despite tough conditions such as the hot weather. Seeing the campsite transformed after all of our hard work was incredibly rewarding. On another occasion, I organized a beach cleanup during a 3-day campout, overcoming challenges like weather and limited supplies such as trash bags or trash grabbers. From organizing the project to learning how to manage with fewer than expected supplies, these experiences taught me resilience, adaptability, and the value of giving back.
+Being part of the software team on the world’s #1 FRC robotics team has further shaped my passion for STEM. Robotics isn’t just about building machines—it’s about innovation, teamwork, and solving real-world problems. Contributing to our success at the world championships has honed my technical skills and collaborative abilities.
+Achieving USACO Silver exemplifies my dedication to problem-solving and continuous learning. The journey from Bronze to Silver was challenging, requiring months of mastering algorithms and building resilience. I’ll never forget the moment I solved my first tough USACO problem after hours of frustration—it fueled my determination to keep improving. </p>
+                <button class="go-back-button" onclick="revertHighlight('difference')">Go Back</button>
             </div>
             <div class="contact" id="contact">
                 <h2>Contact</h2>
