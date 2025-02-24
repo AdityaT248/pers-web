@@ -49,6 +49,138 @@ async def main():
             nav a:hover {
                 color: #FDE047;
             }
+            /* Ensure Navbar is Responsive */
+            nav {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 20px;
+                background: #FF6B35;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 15px;
+            }
+
+            .nav-links a {
+                color: #fff;
+                text-decoration: none;
+                padding: 10px 15px;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: #FFD166;
+            }
+            /* Responsive Text Sizes */
+            h1 {
+                font-size: 3em;
+            }
+
+            h2 {
+                font-size: 2em;
+            }
+
+            p {
+                font-size: 1.1em;
+            }
+
+            /* Mobile Adjustments */
+            @media (max-width: 768px) {
+                h1 {
+                    font-size: 2em;
+                }
+
+                h2 {
+                    font-size: 1.6em;
+                }
+
+                p {
+                    font-size: 1em;
+                }
+            }
+            img {
+                max-width: 100%;
+                height: auto;
+                display: block;
+            }
+            button, .resume-button, .resume-nav-button {
+                padding: 14px 20px;
+                font-size: 1.2em;
+            }
+
+            /* Mobile Adjustments */
+            @media (max-width: 768px) {
+                button, .resume-button, .resume-nav-button {
+                    padding: 16px 24px;
+                    font-size: 1.4em;
+                }
+            }
+            @media (max-width: 768px) {
+                .content {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .card {
+                    width: 90%;
+                    margin: 0 auto 20px;
+                }
+            }
+            @media (max-width: 768px) {
+                .hero, .content, .skills, .contact, .card {
+                    animation: none !important;
+                }
+            }
+
+
+
+
+
+
+            /* Mobile Menu (Hidden by Default) */
+            .menu-toggle {
+                display: none;
+                background: none;
+                color: white;
+                font-size: 1.8em;
+                border: none;
+                cursor: pointer;
+            }
+
+            /* Mobile Mode */
+            @media (max-width: 768px) {
+                .menu-toggle {
+                    display: block;
+                }
+
+                .nav-links {
+                    display: none;
+                    flex-direction: column;
+                    background: #FF6B35;
+                    position: absolute;
+                    top: 60px;
+                    left: 0;
+                    width: 100%;
+                    text-align: center;
+                    padding: 10px 0;
+                    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                }
+
+                .nav-links a {
+                    display: block;
+                    padding: 15px;
+                }
+
+                .nav-links.show {
+                    display: flex;
+                }
+            }
+
             .hero {
                 background: linear-gradient(rgba(249, 115, 22, 0.7), rgba(249, 115, 22, 0.7)), url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
                 padding: 100px 20px;
@@ -965,6 +1097,7 @@ async def main():
                 }
             }
         </script>
+        
         <script>
             function toggleRoboticsDetails() {
                 const details = document.getElementById('robotics-details');
@@ -1031,12 +1164,14 @@ async def main():
         <button class="scroll-to-top" onclick="scrollToTop()">Scroll to Top</button>
         <nav>
             <div class="logo">Aditya Thakkar</div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
             <div class="nav-links">
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
-                <a href="https://docs.google.com/document/d/1eDl1R1TwxLU_MODMobd-a4FZJ1Yaai50viUtW1_HA5M/edit?usp=sharingLU_MODMobd-a4FZJ1Yaai50viUtW1_HA5M/edit?usp=sharing" target="_blank" class="resume-nav-button">Resume</a>
+                <a href="https://docs.google.com/document/d/1eDl1R1TwxLU_MODMobd-a4FZJ1Yaai50viUtW1_HA5M/edit?usp=sharing" target="_blank" class="resume-nav-button">Resume</a>
             </div>
         </nav>
+
         <div class="container">
             <div class="hero">
                 <h1>"First, learn the system. Then, break the system. Finally, build a better one." ― Aditya Thakkar</h1>
