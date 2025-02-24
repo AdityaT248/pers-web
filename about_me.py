@@ -1019,13 +1019,13 @@ async def main():
                     <a href="https://www.team254.com/" target="_blank">Visit team254.com</a>
                 </div>
                 <div class="card" style="margin-bottom: 40px;">
-                    <h2>Opinions on AI</h2>
+                    <h2>My Opinion on AI</h2>
                     <p>For the past few years, AI has become crucial in today's world, and here are my views on it. </p>
                     <a href="#AI-opinion" class="animated-button" onclick="highlightSection('AI-opinion')">Learn More</a>
                 </div>
                 <div class="card" style="margin-bottom: 40px;">
                     <h2>What Sets Me Apart</h2>
-                    <p>My reflection on what makes me different from others. </p>
+                    <p>My reflection on what makes me different from the others. </p>
                     <a href="#difference" class="animated-button" onclick="highlightSection('difference')">Learn More</a>
                 </div>
             </div>
