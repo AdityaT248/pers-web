@@ -561,6 +561,55 @@ async def main():
                     box-shadow: 0 0 20px #FDE047, 0 0 30px #FDE047, 0 0 40px #FDE047, 0 0 50px #FDE047;
                 }
             }
+            .resume-section {
+                text-align: center;
+                background: linear-gradient(135deg, #FF6B35, #FFD700);
+                padding: 30px;
+                border-radius: 15px;
+                box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+                margin-top: 40px;
+                cursor: pointer; /* Make entire section clickable */
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .resume-section h2 {
+                color: #FFFFFF;
+                font-size: 2em;
+                font-weight: bold;
+                margin-bottom: 10px;
+            }
+
+            .resume-section p {
+                color: #FFFBEA;
+                font-size: 1.2em;
+                margin-bottom: 20px;
+            }
+
+            /* Resume Button */
+            .resume-button {
+                display: inline-block;
+                padding: 12px 24px;
+                background-color: #FFD700;
+                color: #000;
+                font-weight: bold;
+                text-decoration: none;
+                font-size: 1.2em;
+                border-radius: 8px;
+                transition: background-color 0.3s ease, transform 0.2s ease;
+            }
+
+            .resume-button:hover {
+                background-color: #FF6B35;
+                color: #fff;
+                transform: scale(1.1);
+            }
+
+            /* Hover Effect for Entire Resume Section */
+            .resume-section:hover {
+                transform: scale(1.03);
+                box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            }
+            
             .go-back-button {
                 display: inline-block;
                 padding: 10px 20px;
@@ -983,9 +1032,9 @@ async def main():
         <nav>
             <div class="logo">Aditya Thakkar</div>
             <div class="nav-links">
-                <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#contact">Contact</a>
+                <a href="https://docs.google.com/document/d/1eDl1R1TwxLU_MODMobd-a4FZJ1Yaai50viUtW1_HA5M/edit?usp=sharingLU_MODMobd-a4FZJ1Yaai50viUtW1_HA5M/edit?usp=sharing" target="_blank" class="resume-nav-button">Resume</a>
             </div>
         </nav>
         <div class="container">
@@ -1099,6 +1148,12 @@ async def main():
                     <li>LinkedIn: <a href="https://www.linkedin.com/in/aditya-thakkar-37206a27a/" target="_blank">https://www.linkedin.com/in/aditya-thakkar-37206a27a/</a></li>
                 </ul>
             </div>
+            <div class="resume-section" onclick="window.open('https://docs.google.com/document/d/1eDl1R1TwxLU_MODMobd-a4FZJ1Yaai50viUtW1_HA5M/edit?usp=sharing', '_blank')">
+                <h2>My Resume</h2>
+                <p>Click anywhere below to view my resume.</p>
+                <a href="https://docs.google.com/document/d/1eDl1R1TwxLU_MODMobd-a4FZJ1Yaai50viUtW1_HA5M/edit?usp=sharing" target="_blank" class="resume-button">View Resume</a>
+            </div>
+
             <footer>
                 <p>&copy; 2025 Aditya Thakkar. All rights reserved.</p>
                 <div class="footer-links">
