@@ -1280,7 +1280,7 @@ async def main():
                 <ul>
                     <li>Email: <a href="mailto:aditya.thakkar.2020@gmail.com">aditya.thakkar.2020@gmail.com</a></li>
                     <li>Github: <a href="https://github.com/AdityaT248">https://github.com/AdityaT248</a></li>
-                    <li>LinkedIn: <a href="https://www.linkedin.com/in/aditya-thakkar-37206a27a/" target="_blank">https://www.linkedin.com/in/aditya-thakkar-37206a27a/</a></li>
+                    <li>LinkedIn: <a href="https://www.linkedin.com/in/adityathakkar-dev/" target="_blank">https://www.linkedin.com/in/adityathakkar-dev/</a></li>
                 </ul>
             </div>
             <div class="resume-section" onclick="window.open('https://docs.google.com/document/d/1eDl1R1TwxLU_MODMobd-a4FZJ1Yaai50viUtW1_HA5M/edit?usp=sharing', '_blank')">
@@ -1294,7 +1294,7 @@ async def main():
                 <div class="footer-links">
                     <a href="mailto:aditya.thakkar.2020@gmail.com">Email me</a>
                     <a href="https://github.com/AdityaT248">Github</a>
-                    <a href="https://www.linkedin.com/in/aditya-thakkar-37206a27a/" target="_blank">Connect on LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/adityathakkar-dev/" target="_blank">Connect on LinkedIn</a>
                 </div>
             </footer>
          <script>
