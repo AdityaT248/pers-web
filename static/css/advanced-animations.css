@@ -1,0 +1,115 @@
+/* Reveal text animations */
+.reveal-text .reveal-line {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    line-height: 1.2;
+    transform: translateY(100%);
+    animation: reveal-text-up 1s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    opacity: 0;
+}
+
+@keyframes reveal-text-up {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Reveal items */
+.reveal-item {
+    animation: reveal-item 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes reveal-item {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Enhanced button styles */
+.btn-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+    color: white;
+    font-weight: 600;
+    border-radius: 9999px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+    box-shadow: 0 4px 20px rgba(14, 165, 233, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #8b5cf6 0%, #0ea5e9 100%);
+    z-index: -1;
+    transition: opacity 0.3s ease-out;
+    opacity: 0;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(14, 165, 233, 0.4);
+}
+
+.btn-primary:hover::before {
+    opacity: 1;
+}
+
+.btn-secondary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    background: transparent;
+    color: white;
+    font-weight: 600;
+    border-radius: 9999px;
+    border: 2px solid white;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    z-index: 1;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: -1;
+    transition: opacity 0.3s ease-out;
+    opacity: 0;
+}
+
+.btn-secondary:hover {
+    color: #0ea5e9;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+}
+
+.btn-secondary:hover::before {
+    opacity: 1;
+} 

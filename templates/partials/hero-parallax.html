@@ -1,0 +1,46 @@
+<section class="relative overflow-hidden h-screen" id="parallax-hero">
+    <div class="absolute inset-0 w-full h-full">
+        <div class="parallax-layer" data-depth="0.1">
+            <div class="absolute top-0 left-0 w-full h-full opacity-70">
+                <img src="{{ url_for('static', path='/images/hero-bg.jpg') }}" alt="" class="w-full h-full object-cover">
+            </div>
+        </div>
+        <div class="parallax-layer" data-depth="0.2">
+            <div class="absolute -bottom-10 -right-10 w-96 h-96 rounded-full bg-blue-500/30 blur-3xl"></div>
+        </div>
+        <div class="parallax-layer" data-depth="0.3">
+            <div class="absolute top-1/4 -left-20 w-80 h-80 rounded-full bg-purple-500/30 blur-3xl"></div>
+        </div>
+    </div>
+    
+    <div class="container mx-auto px-4 h-full flex items-center relative z-10">
+        <div class="max-w-3xl">
+            <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight mb-6 reveal-text">
+                <span class="block reveal-line">Innovation.</span>
+                <span class="block reveal-line">Creativity.</span>
+                <span class="block reveal-line">Technology.</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 mb-10 max-w-xl reveal-text" data-delay="0.6">
+                Bringing your digital vision to life with cutting-edge web development and design solutions.
+            </p>
+            <div class="flex flex-wrap gap-6">
+                <a href="/projects" class="btn-primary reveal-item" data-delay="0.8">
+                    <span>View My Work</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </a>
+                <a href="/contact" class="btn-secondary reveal-item" data-delay="1">
+                    <span>Contact Me</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-white animate-bounce">
+        <span class="text-sm mb-2 opacity-80">Scroll Down</span>
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+        </svg>
+    </div>
+</section> 

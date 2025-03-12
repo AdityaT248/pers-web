@@ -1,0 +1,36 @@
+<div class="fixed bottom-6 right-6 z-50 theme-selector">
+    <button type="button" id="theme-selector-toggle" class="w-12 h-12 rounded-full bg-white dark:bg-gray-800 shadow-lg flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors duration-200" aria-label="Theme options">
+        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+        </svg>
+    </button>
+    
+    <div id="theme-selector-panel" class="hidden absolute bottom-16 right-0 bg-white dark:bg-gray-800 shadow-xl rounded-lg w-64 overflow-hidden">
+        <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+            <h3 class="font-medium text-gray-900 dark:text-white">Select Theme</h3>
+        </div>
+        
+        <div class="p-4 space-y-4">
+            <!-- Mode toggle -->
+            <div class="flex items-center justify-between">
+                <span class="text-sm text-gray-700 dark:text-gray-300">Dark Mode</span>
+                <button type="button" class="theme-toggle relative inline-flex items-center h-6 rounded-full w-11 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500" role="switch" aria-checked="false">
+                    <span class="sr-only">Toggle dark mode</span>
+                    <span class="inline-block w-4 h-4 transform bg-white rounded-full transition-transform dark:translate-x-6 translate-x-1"></span>
+                    <span class="absolute inset-0 rounded-full bg-gray-300 dark:bg-primary-600 transition-colors"></span>
+                </button>
+            </div>
+            
+            <!-- Color themes -->
+            <div>
+                <span class="text-sm text-gray-700 dark:text-gray-300 block mb-2">Color Theme</span>
+                <div class="grid grid-cols-4 gap-2">
+                    <button type="button" class="theme-color-btn w-8 h-8 rounded-full bg-indigo-500 border-2 border-transparent hover:border-gray-400 focus:border-gray-800 dark:focus:border-white transition" data-theme="default"></button>
+                    <button type="button" class="theme-color-btn w-8 h-8 rounded-full bg-blue-500 border-2 border-transparent hover:border-gray-400 focus:border-gray-800 dark:focus:border-white transition" data-theme="blue"></button>
+                    <button type="button" class="theme-color-btn w-8 h-8 rounded-full bg-green-500 border-2 border-transparent hover:border-gray-400 focus:border-gray-800 dark:focus:border-white transition" data-theme="green"></button>
+                    <button type="button" class="theme-color-btn w-8 h-8 rounded-full bg-orange-500 border-2 border-transparent hover:border-gray-400 focus:border-gray-800 dark:focus:border-white transition" data-theme="orange"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

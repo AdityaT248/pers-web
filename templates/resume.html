@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}Aditya Thakkar | Resume{% endblock %}
+
+{% block content %}
+<section class="py-24 bg-gray-50 dark:bg-gray-800">
+    <div class="container mx-auto px-4">
+        <div class="max-w-3xl mx-auto bg-white dark:bg-gray-700 rounded-xl shadow-xl p-8">
+            <div class="text-center mb-8">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">My Resume</h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300">View my complete professional background and experience</p>
+            </div>
+            
+            <div class="mb-8 text-center">
+                <a href="https://docs.google.com/document/d/1eDl1R1TwxLU_MODMobd-a4FZJ1Yaai50viUtW1_HA5M/edit?usp=sharing" 
+                   target="_blank"
+                   class="inline-flex items-center px-6 py-3 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-lg transition-colors duration-300 shadow-md hover:shadow-lg">
+                    <span>View Resume on Google Docs</span>
+                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </a>
+            </div>
+            
+            <div class="flex flex-col md:flex-row justify-between gap-8 mb-8">
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm flex-1">
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Education</h2>
+                    <div class="mb-4">
+                        <h3 class="font-bold text-gray-800 dark:text-gray-200">Bellarmine College Preparatory</h3>
+                        <p class="text-gray-600 dark:text-gray-400">High School Diploma</p>
+                        <p class="text-gray-500 dark:text-gray-500">2021 - 2025</p>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg shadow-sm flex-1">
+                    <h2 class="text-xl font-bold text-gray-900 dark:text-white mb-4">Key Skills</h2>
+                    <ul class="list-disc list-inside text-gray-600 dark:text-gray-400 space-y-2">
+                        <li>Python, Java, HTML/CSS</li>
+                        <li>Robotics & Automation</li>
+                        <li>Problem Solving & Algorithms</li>
+                        <li>Leadership & Team Collaboration</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-gray-600 dark:text-gray-400 mb-6">For a complete and detailed version of my resume, please click the button above to view or download from Google Docs.</p>
+                
+                <a href="/#experience" class="inline-flex items-center text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-medium">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                    </svg>
+                    <span>Back to Experience</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -1,0 +1,205 @@
+/* Custom cursor */
+.cursor-outer,
+.cursor-inner {
+    pointer-events: none;
+    position: fixed;
+    border-radius: 50%;
+    z-index: 9999;
+    transform: translate(0, 0);
+    transition: transform 0.1s ease-out;
+}
+
+.cursor-outer {
+    width: 40px;
+    height: 40px;
+    border: 2px solid rgba(14, 165, 233, 0.5);
+    transition: transform 0.15s ease-out, width 0.2s ease-out, height 0.2s ease-out, border-color 0.2s ease-out;
+    top: -20px;
+    left: -20px;
+}
+
+.cursor-inner {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(14, 165, 233, 1);
+    transition: transform 0.08s ease-out, width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease-out;
+    top: -4px;
+    left: -4px;
+}
+
+.cursor-hover.cursor-outer {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: -30px;
+    border-color: rgba(14, 165, 233, 0.3);
+}
+
+.cursor-hover.cursor-inner {
+    width: 16px;
+    height: 16px;
+    top: -8px;
+    left: -8px;
+    background-color: rgba(14, 165, 233, 0.7);
+}
+
+@media (max-width: 768px) {
+    .cursor-outer, .cursor-inner {
+        display: none;
+    }
+}
+
+/* Technology badge */
+.tech-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background-color: white;
+    border-radius: 9999px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.dark .tech-badge {
+    background-color: #1f2937;
+}
+
+.tech-badge:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Skill progress animation */
+.skill-progress {
+    width: 0;
+    transition: width 1.5s ease-in-out;
+}
+
+/* Add smooth scrolling to the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* For browsers that don't support smooth scrolling natively */
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Your existing text-shadow class */
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8), 0 0 7px rgba(0, 0, 0, 0.5);
+}
+
+/* Add this to your existing CSS */
+.section-clickable {
+    cursor: pointer;
+}
+
+/* Exclude certain areas from triggering section clicks */
+.no-section-click, 
+a, button, input, select, textarea {
+    cursor: auto;
+}
+
+a, button {
+    cursor: pointer; /* Restore pointer cursor for interactive elements */
+}
+
+/* Theme color variables */
+:root {
+  /* Light mode colors */
+  --color-primary: 79, 70, 229; /* Indigo */
+  --color-secondary: 79, 70, 229; /* Indigo */
+  --color-accent: 139, 92, 246; /* Purple */
+  
+  --color-text-primary: 17, 24, 39;
+  --color-text-secondary: 107, 114, 128;
+  --color-bg-primary: 255, 255, 255;
+  --color-bg-secondary: 249, 250, 251;
+}
+
+.dark {
+  /* Dark mode colors */
+  --color-primary: 139, 92, 246; /* Purple */
+  --color-secondary: 124, 58, 237; /* Purple darker */
+  --color-accent: 167, 139, 250; /* Purple lighter */
+  
+  --color-text-primary: 255, 255, 255;
+  --color-text-secondary: 209, 213, 219;
+  --color-bg-primary: 17, 24, 39;
+  --color-bg-secondary: 31, 41, 55;
+}
+
+/* Add more theme variations you might want */
+.theme-blue {
+  --color-primary: 59, 130, 246; /* Blue */
+  --color-secondary: 37, 99, 235; /* Blue darker */
+  --color-accent: 96, 165, 250; /* Blue lighter */
+}
+
+.theme-green {
+  --color-primary: 16, 185, 129; /* Green */
+  --color-secondary: 5, 150, 105; /* Green darker */
+  --color-accent: 52, 211, 153; /* Green lighter */
+}
+
+.theme-orange {
+  --color-primary: 249, 115, 22; /* Orange */
+  --color-secondary: 234, 88, 12; /* Orange darker */
+  --color-accent: 251, 146, 60; /* Orange lighter */
+}
+
+/* Apply variable to existing classes via Tailwind CSS plugins */
+.btn-primary {
+  background-color: rgb(var(--color-primary));
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(var(--color-primary), 0.2);
+}
+
+.btn-primary:hover {
+  background-color: rgba(var(--color-primary), 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 10px -1px rgba(var(--color-primary), 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: rgb(var(--color-primary));
+  border: 2px solid rgb(var(--color-primary));
+  padding: calc(0.75rem - 2px) calc(1.5rem - 2px);
+  border-radius: 0.5rem;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(var(--color-primary), 0.1);
+  transform: translateY(-1px);
+}
+
+/* Text color classes */
+.text-theme-primary {
+  color: rgb(var(--color-primary));
+}
+
+.text-theme-secondary {
+  color: rgb(var(--color-secondary));
+}
+
+/* Section styles for smooth transitions between themes */
+section, 
+header, 
+footer {
+  transition: background-color 0.3s ease, color 0.3s ease;
+} 
