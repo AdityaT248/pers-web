@@ -9,6 +9,7 @@
         <div class="parallax-layer" data-depth="0.1">
             <div class="absolute top-0 left-0 w-full h-full opacity-70">
                 <img src="{{ url_for('static', path='/images/hero-bg.jpg') }}" alt="" class="w-full h-full object-cover">
+                <!-- Add dark overlay for better text contrast -->
                 <div class="absolute inset-0 bg-black/40"></div>
             </div>
         </div>
@@ -40,22 +41,7 @@
                     <span>Contact Me</span>
                 </a>
             </div>
-            <div class="mt-10 flex items-center space-x-6 reveal-item" data-delay="1.2">
-                <a href="https://github.com/AdityaT248" target="_blank" class="text-white hover:text-yellow-300 transition-colors duration-300">
-                    <i class="fab fa-github text-2xl"></i>
-                </a>
-                <a href="https://linkedin.com/in/adityathakkar-dev" target="_blank" class="text-white hover:text-yellow-300 transition-colors duration-300">
-                    <i class="fab fa-linkedin text-2xl"></i>
-                </a>
-            </div>
         </div>
-    </div>
-    
-    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center text-white animate-bounce">
-        <span class="text-sm mb-2 opacity-80">Scroll Down</span>
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-        </svg>
     </div>
 </section>
 

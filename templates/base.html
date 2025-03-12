@@ -3,46 +3,139 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Portfolio{% endblock %}</title>
+    <title>{% block title %}Aditya Thakkar | Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            // ...other shades
+                            600: '#4f46e5',
+                            // ...
+                        }
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body>
-    <header class="bg-blue-600 text-white p-4">
-        <div class="container mx-auto">
-            <h1 class="text-2xl font-bold">My Portfolio</h1>
+<body class="bg-white dark:bg-gray-900 text-gray-800 dark:text-gray-200">
+    <!-- Enhanced Navigation Bar with shadow and background -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/90 dark:bg-gray-800/90 backdrop-blur-md shadow-md py-4 transition-all duration-300">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold text-gray-800 dark:text-white transition-colors">
+                Aditya<span class="text-primary-600 dark:text-primary-400">Thakkar</span>
+            </a>
+            
+            <div class="flex items-center">
+                <!-- Desktop Navigation -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="/#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">About</a>
+                    <a href="/#skills" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Skills</a>
+                    <a href="/#experience" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Experience</a>
+                    <a href="/#projects" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Projects</a>
+                    <a href="/resume" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Resume</a>
+                    <a href="/#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Contact</a>
+                </nav>
+                
+                <!-- Theme Toggles -->
+                <div class="flex items-center ml-6 space-x-3">
+                    <!-- Theme Color Selector Dropdown -->
+                    <div class="relative">
+                        <button id="theme-color-toggle" class="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200" aria-label="Change theme color">
+                            <svg class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path>
+                            </svg>
+                        </button>
+                        
+                        <!-- Theme Color Dropdown Content -->
+                        <div id="theme-color-dropdown" class="absolute right-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-md shadow-lg overflow-hidden z-50 hidden transition-all transform origin-top-right">
+                            <div class="py-2 px-3">
+                                <p class="text-sm font-medium text-gray-900 dark:text-white mb-2">Select Theme</p>
+                                <div class="grid grid-cols-4 gap-2">
+                                    <button type="button" class="theme-color-btn w-8 h-8 rounded-full bg-indigo-500 border-2 border-transparent hover:border-gray-400 focus:border-gray-800 dark:focus:border-white transition" data-theme="default"></button>
+                                    <button type="button" class="theme-color-btn w-8 h-8 rounded-full bg-blue-500 border-2 border-transparent hover:border-gray-400 focus:border-gray-800 dark:focus:border-white transition" data-theme="blue"></button>
+                                    <button type="button" class="theme-color-btn w-8 h-8 rounded-full bg-green-500 border-2 border-transparent hover:border-gray-400 focus:border-gray-800 dark:focus:border-white transition" data-theme="green"></button>
+                                    <button type="button" class="theme-color-btn w-8 h-8 rounded-full bg-orange-500 border-2 border-transparent hover:border-gray-400 focus:border-gray-800 dark:focus:border-white transition" data-theme="orange"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Dark/Light Mode Toggle -->
+                    <button type="button" class="theme-toggle w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200" aria-label="Toggle theme" aria-checked="false">
+                        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                        <svg class="w-6 h-6 text-yellow-400 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </button>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <button id="mobile-menu-button" class="md:hidden ml-4 text-gray-700 dark:text-gray-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 hidden flex flex-col h-full">
+            <div class="p-4 flex justify-between items-center border-b border-gray-200 dark:border-gray-700">
+                <a href="/" class="text-2xl font-bold text-gray-800 dark:text-white">
+                    Aditya<span class="text-primary-600 dark:text-primary-400">Thakkar</span>
+                </a>
+                <button id="mobile-menu-close" class="text-gray-700 dark:text-gray-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="py-4 px-4 overflow-y-auto flex-1">
+                <nav class="flex flex-col space-y-4">
+                    <a href="/#about" class="py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">About</a>
+                    <a href="/#skills" class="py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Skills</a>
+                    <a href="/#experience" class="py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Experience</a>
+                    <a href="/#projects" class="py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Projects</a>
+                    <a href="/resume" class="py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Resume</a>
+                    <a href="/#contact" class="py-2 text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Contact</a>
+                </nav>
+            </div>
+            <div class="px-6 flex items-center justify-between border-t border-gray-200 dark:border-gray-700 py-4 mt-auto">
+                <div class="flex items-center">
+                    <button type="button" class="theme-toggle w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-200" aria-label="Toggle theme" aria-checked="false">
+                        <svg class="w-6 h-6 text-gray-700 dark:text-gray-300 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                        <svg class="w-6 h-6 text-yellow-400 sun-icon hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                        </svg>
+                    </button>
+                    <span class="ml-3 text-sm font-medium text-gray-700 dark:text-gray-300">Toggle Theme</span>
+                </div>
+            </div>
         </div>
     </header>
-    
-    <main>
-        <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-8">
-            <a href="/#about" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">About</a>
-            <a href="/#skills" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Skills</a>
-            <a href="/#experience" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Experience</a>
-            <a href="/#projects" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Projects</a>
-            <a href="/resume" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Resume</a>
-            <a href="/#contact" class="text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 font-medium transition-colors duration-200">Contact</a>
-        </nav>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="fixed inset-y-0 right-0 w-full max-w-sm bg-white dark:bg-gray-800 shadow-2xl transform translate-x-full transition-transform duration-300 ease-in-out z-50">
-            <nav class="flex flex-col space-y-2 px-6 py-8">
-                <a href="/#about" class="text-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">About</a>
-                <a href="/#skills" class="text-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Skills</a>
-                <a href="/#experience" class="text-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Experience</a>
-                <a href="/#projects" class="text-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Projects</a>
-                <a href="/resume" class="text-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Resume</a>
-                <a href="/#contact" class="text-lg px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors duration-200">Contact</a>
-            </nav>
-        </div>
-        
+
+    <!-- Add padding to account for fixed header -->
+    <div class="pt-20">
         {% block content %}{% endblock %}
-    </main>
+    </div>
+
+    {% include "partials/theme-selector.html" %}
     
-    <footer class="bg-gray-800 text-white p-4 mt-8">
-        <div class="container mx-auto">
-            <p>&copy; 2025 My Portfolio</p>
-        </div>
-    </footer>
+    <script src="{{ url_for('static', path='/js/main.js') }}"></script>
+    <script src="{{ url_for('static', path='/js/theme.js') }}"></script>
+    <script src="{{ url_for('static', path='/js/contact.js') }}"></script>
 </body>
 </html> 

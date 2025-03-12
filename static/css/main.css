@@ -202,4 +202,128 @@ section,
 header, 
 footer {
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Add these animation classes */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes float-reverse {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 7s ease-in-out infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.typing-animation {
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end);
+  border-right: .15em solid transparent;
+}
+
+/* Tech icon styling */
+.tech-icon {
+  @apply w-10 h-10 rounded-full bg-white/10 flex items-center justify-center transition-transform hover:scale-110;
+}
+
+/* Grid pattern background */
+.bg-grid-pattern {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Enhanced header visibility */
+header {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+header.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dark header.scrolled {
+  background-color: rgba(31, 41, 55, 0.95);
+}
+
+/* Active navigation item */
+.nav-active {
+  color: rgb(var(--color-primary));
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(var(--color-primary));
+  border-radius: 1px;
+}
+
+/* Theme color buttons pulse effect */
+.theme-color-btn {
+  position: relative;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.theme-color-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 8px rgba(var(--color-primary), 0.6);
+}
+
+.theme-color-btn.active::after {
+  content: '';
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  bottom: -2px;
+  left: -2px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+/* Add smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* For browsers that don't support smooth scrolling natively */
+@media screen and (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 } 
