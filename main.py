@@ -58,9 +58,9 @@ async def resume(request: Request):
     # Alternatively, to serve a PDF:
     # return FileResponse("static/files/resume.pdf")
 
-@app.get("/favicon.ico", response_class=FileResponse)
-async def favicon():
-    return FileResponse("static/favicon.ico")
+#@app.get("/favicon.ico", response_class=FileResponse)
+#async def favicon():
+#    return FileResponse("static/favicon.ico")
 
 # Simple debugging endpoint to check template existence
 @app.get("/debug")
