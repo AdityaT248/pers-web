@@ -9,6 +9,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pydantic import BaseModel, EmailStr
+from fastapi.responses import Response
 
 # Get the current directory
 current_dir = pathlib.Path(__file__).parent.absolute()
