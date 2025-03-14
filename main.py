@@ -46,8 +46,8 @@ async def sitemap():
         <url><loc>https://adityathakkar.onrender.com/about</loc></url>
         <url><loc>https://adityathakkar.onrender.com/skills</loc></url>
         <url><loc>https://adityathakkar.onrender.com/contact</loc></url>
-    </urlset>
-    """
+    </urlset>"""
+    
     return Response(content=xml_content, media_type="application/xml")
 
 @app.get("/", response_class=HTMLResponse)
