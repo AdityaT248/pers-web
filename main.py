@@ -58,9 +58,21 @@ async def resume(request: Request):
     # Alternatively, to serve a PDF:
     # return FileResponse("static/files/resume.pdf")
 
+@app.get("/sitemap.xml", response_class=FileResponse)
+async def sitemap():
+    sitemap_path = static_dir / "sitemap.xml"
+    return FileResponse(sitemap_path, media_type="application/xml")
+
+@app.get("/robots.txt", response_class=FileResponse)
+async def robots():
+    robots_path = static_dir / "robots.txt"
+    return FileResponse(robots_path, media_type="text/plain")
+
+@app.get("/sitemap-html", response_class=HTMLResponse)
+async def sitemap_html(request: Request):
+    return templates.TemplateResponse("sitemap.html", {"request": request})
+
 #@app.get("/favicon.ico", response_class=FileResponse)
-#async def favicon():
-#    return FileResponse("static/favicon.ico")
 
 # Simple debugging endpoint to check template existence
 @app.get("/debug")
