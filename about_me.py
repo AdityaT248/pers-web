@@ -1292,7 +1292,6 @@ async def main():
             <footer>
                 <p>&copy; 2025 Aditya Thakkar. All rights reserved.</p>
                 <div class="footer-links">
-                    <a href="mailto:aditya.thakkar.2020@gmail.com">Email me</a>
                     <a href="https://github.com/AdityaT248">Github</a>
                     <a href="https://www.linkedin.com/in/adityathakkar-dev/" target="_blank">Connect on LinkedIn</a>
                 </div>
