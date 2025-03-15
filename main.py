@@ -40,12 +40,12 @@ class EmailContent(BaseModel):
 async def sitemap():
     xml_content = """<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-        <url><loc>https://adityathakkar.onrender.com/</loc></url>
-        <url><loc>https://adityathakkar.onrender.com/resume</loc></url>
-        <url><loc>https://adityathakkar.onrender.com/projects</loc></url>
-        <url><loc>https://adityathakkar.onrender.com/about</loc></url>
-        <url><loc>https://adityathakkar.onrender.com/skills</loc></url>
-        <url><loc>https://adityathakkar.onrender.com/contact</loc></url>
+        <url><loc>https://aditya-thakkar.com/</loc></url>
+        <url><loc>https://aditya-thakkar.com/#resume</loc></url>
+        <url><loc>https://aditya-thakkar.com/#projects</loc></url>
+        <url><loc>https://aditya-thakkar.com/#about</loc></url>
+        <url><loc>https://aditya-thakkar.com/#skills</loc></url>
+        <url><loc>https://aditya-thakkar.com/#contact</loc></url>
     </urlset>"""
     
     return Response(content=xml_content, media_type="application/xml")
